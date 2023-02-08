@@ -26,7 +26,7 @@ replace `w4xwgt` = 0.00000001 if `w4xwgt`==0
 
 stset `end_dem_int` [pweight = `w4xwgt`] if `LIBRA_amount`==11 & !missing(`SEB_dem_prev_w9`) , id(`idauniq`) failure(`SEB_dem_prev_w9`==1) enter(`time date_ii4`) origin(`time birthdate`) scale(365.25)
 
-keep if `survivaltime`>.14 & !missing(`survivaltime`) & indager<70
+keep if `survivaltime`>.14 & !missing(`survivaltime`) & `indager`<70
 
 stcox i.`depression` i.`indsex` i.`education_a` i.`education_0` i.`wealth_wave4_tertiles` `LIBRA_nodepr`, vce(cluster `idahhw4`)
 
